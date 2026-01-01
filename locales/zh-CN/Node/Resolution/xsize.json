@@ -1,0 +1,22 @@
+{
+    "title": "Xsize",
+    "widgets": {
+        "width": {
+            "label": "宽度"
+        },
+        "height": {
+            "label": "高度"
+        },
+        "swap_dimensions": {
+            "label": "交换宽高"
+        }
+    },
+    "outputs": {
+        "Width": {
+            "label": "宽度"
+        },
+        "Height": {
+            "label": "高度"
+        }
+    }
+}

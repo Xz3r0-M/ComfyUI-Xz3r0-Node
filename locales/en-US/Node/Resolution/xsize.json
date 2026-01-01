@@ -1,0 +1,22 @@
+{
+    "title": "Xsize",
+    "widgets": {
+        "width": {
+            "label": "Width"
+        },
+        "height": {
+            "label": "Height"
+        },
+        "swap_dimensions": {
+            "label": "Swap Dimensions"
+        }
+    },
+    "outputs": {
+        "Width": {
+            "label": "Width"
+        },
+        "Height": {
+            "label": "Height"
+        }
+    }
+}

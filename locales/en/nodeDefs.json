@@ -1,6 +1,6 @@
 {
   "Xsize": {
-    "display_name": "Xsize",
+    "display_name": "X Size",
     "description": "A node for setting image width and height dimensions",
     "inputs": {
       "width": {
@@ -24,6 +24,28 @@
       "1": {
         "name": "Height",
         "tooltip": "Output height value"
+      }
+    }
+  },
+  "Ximagesave": {
+    "display_name": "X Image Save",
+    "description": "An image save node with custom path and filename tokens support",
+    "inputs": {
+      "images": {
+        "name": "Images",
+        "tooltip": "The images to save"
+      },
+      "filename_prefix": {
+        "name": "Filename Prefix",
+        "tooltip": "Filename prefix with support for tokens like %date%, %time%, %seed%, etc."
+      },
+      "use_custom_path": {
+        "name": "Use Custom Folder",
+        "tooltip": "Whether to use a custom folder"
+      },
+      "folder": {
+        "name": "Custom Folder Name",
+        "tooltip": "Custom save folder, supports creating subfolders like: Character/Female"
       }
     }
   }

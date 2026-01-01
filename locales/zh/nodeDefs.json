@@ -1,0 +1,30 @@
+{
+  "Xsize": {
+    "display_name": "Xsize",
+    "description": "用于设置图像宽度和高度的节点",
+    "inputs": {
+      "width": {
+        "name": "宽度",
+        "tooltip": "图像宽度（像素）"
+      },
+      "height": {
+        "name": "高度",
+        "tooltip": "图像高度（像素）"
+      },
+      "swap_dimensions": {
+        "name": "交换宽高",
+        "tooltip": "交换宽度和高度值"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "宽度",
+        "tooltip": "输出宽度值"
+      },
+      "1": {
+        "name": "高度",
+        "tooltip": "输出高度值"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "Xsize": {
+    "display_name": "Xsize",
+    "description": "A node for setting image width and height dimensions",
+    "inputs": {
+      "width": {
+        "name": "Width",
+        "tooltip": "Image width in pixels"
+      },
+      "height": {
+        "name": "Height",
+        "tooltip": "Image height in pixels"
+      },
+      "swap_dimensions": {
+        "name": "Swap Dimensions",
+        "tooltip": "Swap width and height values"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "Width",
+        "tooltip": "Output width value"
+      },
+      "1": {
+        "name": "Height",
+        "tooltip": "Output height value"
+      }
+    }
+  }
+}

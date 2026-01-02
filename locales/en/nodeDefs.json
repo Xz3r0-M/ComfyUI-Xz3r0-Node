@@ -1,6 +1,6 @@
 {
-  "Xsize": {
-    "display_name": "X Size",
+  "XSize": {
+    "display_name": "XSize",
     "description": "A node for setting image width and height dimensions",
     "inputs": {
       "width": {
@@ -27,8 +27,8 @@
       }
     }
   },
-  "Ximagesave": {
-    "display_name": "X Image Save",
+  "XImageSave": {
+    "display_name": "XImageSave",
     "description": "An image save node with custom path and filename tokens support",
     "inputs": {
       "images": {

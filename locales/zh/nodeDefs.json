@@ -1,6 +1,6 @@
 {
-  "Xsize": {
-    "display_name": "X Size",
+  "XSize": {
+    "display_name": "XSize",
     "description": "用于设置图像宽度和高度的节点",
     "inputs": {
       "width": {
@@ -27,8 +27,8 @@
       }
     }
   },
-  "Ximagesave": {
-    "display_name": "X Image Save",
+  "XImageSave": {
+    "display_name": "XImageSave",
     "description": "支持自定义路径和文件名标识符的图像保存节点",
     "inputs": {
       "images": {

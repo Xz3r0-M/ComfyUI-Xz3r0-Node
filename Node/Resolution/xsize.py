@@ -1,4 +1,4 @@
-class Xsize:
+class XSize:
     @classmethod
     def INPUT_TYPES(cls):
         return {

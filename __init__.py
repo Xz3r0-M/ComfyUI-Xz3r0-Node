@@ -21,19 +21,19 @@ if missing_deps:
     print(f"Please install them using: pip install -r requirements.txt")
 
 
-from .Node.Resolution.xsize import Xsize
-from .Node.Image.ximagesave import Ximagesave
+from .Node.Resolution.xsize import XSize
+from .Node.Image.ximagesave import XImageSave
 
 # A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
-    "Xsize": Xsize,
-    "Ximagesave": Ximagesave,
+    "XSize": XSize,
+    "XImageSave": XImageSave,
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Xsize": "Xsize",
-    "Ximagesave": "Image Save (Xz3r0)",
+    "XSize": "XSize",
+    "XImageSave": "XImageSave",
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]

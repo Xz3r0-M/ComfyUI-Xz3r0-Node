@@ -9,7 +9,7 @@ import time
 import hashlib
 
 
-class Ximagesave:
+class XImageSave:
     def __init__(self):
         self.output_dir = folder_paths.get_output_directory()
         self.type = "output"
@@ -146,9 +146,9 @@ class Ximagesave:
 
 # Node class mappings
 NODE_CLASS_MAPPINGS = {
-    "Ximagesave": Ximagesave
+    "XImageSave": XImageSave
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Ximagesave": "Ximagesave"
+    "XImageSave": "X Image Save"
 }

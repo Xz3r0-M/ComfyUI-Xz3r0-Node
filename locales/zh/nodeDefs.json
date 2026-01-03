@@ -48,5 +48,53 @@
         "tooltip": "自定义保存文件夹，支持同时创建子文件夹，如：人物/女性"
       }
     }
+  },
+  "XLoadLatent": {
+    "display_name": "XLoadLatent",
+    "description": "从输出目录加载潜变量文件的节点",
+    "inputs": {
+      "filepath": {
+        "name": "文件路径",
+        "tooltip": "输出目录中的潜变量文件路径"
+      }
+    },
+    "outputs": {
+      "LATENT": {
+        "name": "潜变量",
+        "tooltip": "加载的潜变量张量"
+      }
+    }
+  },
+  "XSaveLatent": {
+    "display_name": "XSaveLatent",
+    "description": "用于保存潜变量张量的节点，支持带序号或不带序号的文件名",
+    "inputs": {
+      "samples": {
+        "name": "潜变量",
+        "tooltip": "要保存的潜变量张量"
+      },
+      "save_path": {
+        "name": "保存路径",
+        "tooltip": "潜变量文件的保存路径"
+      },
+      "number_padding": {
+        "name": "文件名带序号",
+        "tooltip": "是否在文件名中添加序号以防止覆盖（例如 abc_00001.latent 与 abc.latent）"
+      }
+    },
+    "button": {
+      "enabled": {
+        "name": "带序号"
+      },
+      "disabled": {
+        "name": "不带序号"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "已保存文件名",
+        "tooltip": "已保存的潜变量文件名"
+      }
+    }
   }
 }

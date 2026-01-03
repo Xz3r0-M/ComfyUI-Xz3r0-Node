@@ -6,14 +6,12 @@ import folder_paths
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 import time
-import hashlib
 
 
 class XImageSave:
     def __init__(self):
         self.output_dir = folder_paths.get_output_directory()
         self.type = "output"
-        self.prefix_append = ""
         self.compress_level = 4
 
     @classmethod
@@ -38,7 +36,7 @@ class XImageSave:
     RETURN_TYPES = ()
     FUNCTION = "save_images"
     OUTPUT_NODE = True
-    CATEGORY = "Xz3r0"
+    CATEGORY = "Xz3r0/Image"
 
     def save_images(self, images, filename_prefix="ComfyUI", use_custom_path=False, folder="", prompt=None, extra_pnginfo=None):
         # Process filename prefix with tokens

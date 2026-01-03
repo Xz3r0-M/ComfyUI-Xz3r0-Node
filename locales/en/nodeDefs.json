@@ -48,5 +48,53 @@
         "tooltip": "Custom save folder, supports creating subfolders like: Character/Female"
       }
     }
+  },
+  "XLoadLatent": {
+    "display_name": "XLoadLatent",
+    "description": "A node for loading latent files from the output directory",
+    "inputs": {
+      "filepath": {
+        "name": "File Path",
+        "tooltip": "Path to the latent file in output directory"
+      }
+    },
+    "outputs": {
+      "LATENT": {
+        "name": "Latent",
+        "tooltip": "Loaded latent tensor"
+      }
+    }
+  },
+  "XSaveLatent": {
+    "display_name": "XSaveLatent",
+    "description": "A node for saving latent tensors with options for numbered or non-numbered filenames",
+    "inputs": {
+      "samples": {
+        "name": "Latent",
+        "tooltip": "The latent tensor to save"
+      },
+      "save_path": {
+        "name": "Save Path",
+        "tooltip": "Path for saving the latent file"
+      },
+      "number_padding": {
+        "name": "File Name With Numbering",
+        "tooltip": "Whether to add numbering to the filename to prevent overwriting (e.g., abc_00001.latent vs abc.latent)"
+      }
+    },
+    "button": {
+      "enabled": {
+        "name": "With Numbering"
+      },
+      "disabled": {
+        "name": "Without Numbering"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "Saved File Name",
+        "tooltip": "Name of the saved latent file"
+      }
+    }
   }
 }

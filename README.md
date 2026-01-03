@@ -1,7 +1,13 @@
 # ComfyUI Xz3r0 Nodes
-一些我自己的时尚小垃圾节点(又重复造轮子了)
+一些我自己的时尚小垃圾节点(似乎又重复造轮子了)
 
-## 节点列表:
+```bash
+git clone https://github.com/Xz3r0-M/ComfyUI-Xz3r0-Node.git
+cd ComfyUI-Xz3r0-Node
+pip install -r requirements.txt
+```
+
+## 节点列表
 ### XSize (分辨率设置节点)
 - 设置宽度和高度的值
 - 交换宽高值开关。

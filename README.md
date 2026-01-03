@@ -5,7 +5,7 @@
 ### XSize (分辨率设置节点)
 - 设置宽度和高度的值
 - 交换宽高值开关。
-<img src="Preview/X_Size.png" width="400" alt="XSize">
+<img src="Preview/XSize.png" width="400" alt="XSize">
 
 ### XImageSave (图像保存节点)
 - 支持文件名标识符
@@ -17,7 +17,7 @@
   - `%seed%` - 生成种子值
 - 包含开关可选择是否使用(默认输出目录下)自定义文件夹来保存图像
 - 不存在的自定义文件夹将会自动创建（支持同时创建多级子文件夹,如: 默认输出目录/人物/女性）
-<img src="Preview/X_Image_Save.png" width="400" alt="XImageSave">
+<img src="Preview/XImageSave.png" width="400" alt="XImageSave">
 
 ### XLoadLatent (Latent加载节点)
 - 从ComfyUI的Output目录加载`.latent`文件
@@ -28,3 +28,4 @@
 - 支持带序号和不带序号的文件名（防止覆盖或直接覆盖）
 - 将已保存的文件名输出为字符串
 - 保存Latent让长视频生成工作流更容易分开处理
+<img src="Preview\XLoadLatent&XSaveLatent.png" width="400" alt="XLoadLatent&XSaveLatent">

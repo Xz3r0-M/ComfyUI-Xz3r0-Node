@@ -12,13 +12,14 @@ class XSaveLatent:
         return {
             "required": {
                 "samples": ("LATENT", ),
-                "save_path": ("STRING", {"default": "latents/ComfyUI"}),
+                "save_path": ("STRING", {"default": "Latents/ComfyUI"}),
                 "number_padding": ("BOOLEAN", {"default": True, "label_on": "enabled", "label_off": "disabled"})
             },
 
         }
 
-    RETURN_TYPES = ("STRING",)
+    RETURN_TYPES = ("LATENT", "STRING")
+    RETURN_NAMES = ("Latent", "saved_file")
     FUNCTION = "save"
     OUTPUT_NODE = True
     CATEGORY = "Xz3r0/Latent"
@@ -49,7 +50,7 @@ class XSaveLatent:
         comfy.utils.save_torch_file(output, file_path, metadata=metadata)
         
         # 返回输出
-        return (file,)
+        return (samples, file)
 
 
 NODE_CLASS_MAPPINGS = {

@@ -92,6 +92,10 @@
     },
     "outputs": {
       "0": {
+        "name": "Latent",
+        "tooltip": "Saved latent tensor"
+      },
+      "1": {
         "name": "Saved File Name",
         "tooltip": "Name of the saved latent file"
       }

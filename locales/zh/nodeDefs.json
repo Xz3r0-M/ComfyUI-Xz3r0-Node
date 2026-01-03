@@ -51,31 +51,31 @@
   },
   "XLoadLatent": {
     "display_name": "XLoadLatent",
-    "description": "从输出目录加载潜变量文件的节点",
+    "description": "从Output目录加载Latent文件的节点",
     "inputs": {
       "filepath": {
         "name": "文件路径",
-        "tooltip": "输出目录中的潜变量文件路径"
+        "tooltip": "Output目录中的Latent文件路径"
       }
     },
     "outputs": {
       "LATENT": {
-        "name": "潜变量",
-        "tooltip": "加载的潜变量张量"
+        "name": "Latent",
+        "tooltip": "加载的Latent"
       }
     }
   },
   "XSaveLatent": {
     "display_name": "XSaveLatent",
-    "description": "用于保存潜变量张量的节点，支持带序号或不带序号的文件名",
+    "description": "用于保存Latent的节点，支持带序号或不带序号的文件名",
     "inputs": {
       "samples": {
-        "name": "潜变量",
-        "tooltip": "要保存的潜变量张量"
+        "name": "Latent",
+        "tooltip": "要保存的Latent"
       },
       "save_path": {
         "name": "保存路径",
-        "tooltip": "潜变量文件的保存路径"
+        "tooltip": "Latent文件的保存路径"
       },
       "number_padding": {
         "name": "文件名带序号",
@@ -92,8 +92,12 @@
     },
     "outputs": {
       "0": {
+        "name": "Latent",
+        "tooltip": "已保存的Latent"
+      },
+      "1": {
         "name": "已保存文件名",
-        "tooltip": "已保存的潜变量文件名"
+        "tooltip": "已保存的Latent文件名"
       }
     }
   }

@@ -34,7 +34,7 @@ class XSaveLatent:
         # 根据开关决定是否添加序号
         if number_padding:
             # 带序号行为：防止覆盖，使用ComfyUI的计数器
-            file = f"{filename}_{counter:05}_.latent"
+            file = f"{filename}_{counter:05}.latent"
         else:
             # 不带序号行为：直接覆盖
             file = f"{filename}.latent"

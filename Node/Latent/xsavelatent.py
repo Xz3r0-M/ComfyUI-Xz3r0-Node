@@ -33,8 +33,8 @@ class XSaveLatent:
 
         # 根据开关决定是否添加序号
         if number_padding:
-            # 带序号行为：防止覆盖，使用ComfyUI的计数器
-            file = f"{filename}_{counter:05}.latent"
+            # 带序号行为：防止覆盖，手动查找下一个可用的计数器
+            file = self.get_filename_with_counter(full_output_folder, filename)
         else:
             # 不带序号行为：直接覆盖
             file = f"{filename}.latent"
@@ -54,6 +54,15 @@ class XSaveLatent:
         
         # 返回输出
         return (samples, rel_path)
+    
+    def get_filename_with_counter(self, full_output_folder, filename):
+        # 手动查找下一个可用的计数器
+        n = 0
+        while True:
+            file = f"{filename}_{n:05}.latent"
+            if not os.path.exists(os.path.join(full_output_folder, file)):
+                return file
+            n += 1
 
 
 NODE_CLASS_MAPPINGS = {

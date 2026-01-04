@@ -19,7 +19,7 @@ class XSaveLatent:
         }
 
     RETURN_TYPES = ("LATENT", "STRING")
-    RETURN_NAMES = ("Latent", "saved_file")
+    RETURN_NAMES = ("Latent", "full_path")
     FUNCTION = "save"
     OUTPUT_NODE = True
     CATEGORY = "Xz3r0/Latent"
@@ -41,6 +41,9 @@ class XSaveLatent:
 
         file_path = os.path.join(full_output_folder, file)
 
+        # 计算相对于输出目录的完整路径
+        rel_path = os.path.relpath(file_path, self.output_dir)
+
         output = {}
         output["latent_tensor"] = samples["samples"].contiguous()
         output["latent_format_version_0"] = torch.tensor([])
@@ -50,7 +53,7 @@ class XSaveLatent:
         comfy.utils.save_torch_file(output, file_path, metadata=metadata)
         
         # 返回输出
-        return (samples, file)
+        return (samples, rel_path)
 
 
 NODE_CLASS_MAPPINGS = {

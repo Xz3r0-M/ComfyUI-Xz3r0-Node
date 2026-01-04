@@ -56,6 +56,10 @@
       "filepath": {
         "name": "File Path",
         "tooltip": "Path to the latent file in output directory"
+      },
+      "filepath_input": {
+        "name": "Manual Input Path (Priority)",
+        "tooltip": "Manually input path to latent file, takes priority over dropdown selection"
       }
     },
     "outputs": {

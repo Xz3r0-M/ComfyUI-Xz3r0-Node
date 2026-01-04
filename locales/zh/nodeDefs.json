@@ -56,6 +56,10 @@
       "filepath": {
         "name": "文件路径",
         "tooltip": "Output目录中的Latent文件路径"
+      },
+      "filepath_input": {
+        "name": "手动输入路径(优先)",
+        "tooltip": "手动输入Latent文件路径，优先于下拉选择"
       }
     },
     "outputs": {

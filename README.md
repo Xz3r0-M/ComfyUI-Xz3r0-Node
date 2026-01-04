@@ -28,6 +28,7 @@ pip install -r requirements.txt
 ### XLoadLatent (Latent加载节点)
 - 从ComfyUI的Output目录加载`.latent`文件
 - 提供下拉列表显示Output目录及其子目录中的Latent文件
+- 支持手动输入路径（优先）：可以直接接收来自XSaveLatent节点的路径+文件名，优先于下拉列表选择
 
 ### XSaveLatent (Latent保存节点)
 - 将`.latent`文件保存到ComfyUI的Output目录

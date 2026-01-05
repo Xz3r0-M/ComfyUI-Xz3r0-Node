@@ -1,5 +1,10 @@
 # ComfyUI Xz3r0 Nodes
+The node has [Chinese/English] localization
+
+节点拥有[中/英]本地化
+
 一些我自己的时尚小垃圾节点(似乎又重复造轮子了)
+
 全程面向Vibe Coding
 
 ## 安装
@@ -43,3 +48,4 @@ pip install -r requirements.txt
 - 支持整数和浮点数的数学运算
 - 支持多种运算类型：加法(+)、减法(-)、乘法(×)、除法(÷)、幂运算(^)、取模(%)、整除(//)、百分比(%)、最小值、最大值
 - 同时输出浮点数和整数结果
+<img src="Preview/XMath.png" width="400" alt="XMath">

@@ -46,6 +46,10 @@
       "folder": {
         "name": "Custom Folder Name",
         "tooltip": "Custom save folder, supports creating subfolders like: Character/Female"
+      },
+      "add_folder_sequence": {
+        "name": "Add Folder Sequence Number",
+        "tooltip": "Automatically add sequence number to custom folder name if it doesn't already have one (e.g., Image_00001)"
       }
     }
   },

@@ -30,6 +30,7 @@ pip install -r requirements.txt
   - `%seed%` - 采样器的种子值
 - 包含开关可选择是否使用(默认输出目录下)自定义文件夹来保存图像
 - 不存在的自定义文件夹将会自动创建（支持同时创建多级子文件夹,如: 默认输出目录/人物/女性）
+- 可选择为自定义文件夹名自动添加序列号，避免重复命名（例如：图片_00001）
 <img src="Preview/XImageSave.png" width="400" alt="XImageSave">
 
 ### XLoadLatent (Latent加载节点)

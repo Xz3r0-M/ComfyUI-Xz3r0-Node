@@ -26,6 +26,7 @@ class XImageSave:
                     "multiline": False,
                     "placeholder": "Enter folder name or leave empty to use default"
                 }),
+                "add_folder_sequence": ("BOOLEAN", {"default": False, "label_on": "YES", "label_off": "NO"}),
             },
             "hidden": {
                 "prompt": "PROMPT",
@@ -38,7 +39,7 @@ class XImageSave:
     OUTPUT_NODE = True
     CATEGORY = "Xz3r0/Image"
 
-    def save_images(self, images, filename_prefix="ComfyUI", use_custom_path=False, folder="", prompt=None, extra_pnginfo=None):
+    def save_images(self, images, filename_prefix="ComfyUI", use_custom_path=False, folder="", add_folder_sequence=False, prompt=None, extra_pnginfo=None):
         # Process filename prefix with tokens
         filename_prefix = self.replace_tokens(filename_prefix, prompt)
         
@@ -47,6 +48,11 @@ class XImageSave:
             # Use folder as subfolder within output directory for security
             # ComfyUI restricts saving to subdirectories of the output folder
             subfolder_path = folder.strip().replace('\\', '/').rstrip('/')
+            
+            # Add sequence number to folder if enabled
+            if add_folder_sequence:
+                subfolder_path = self.add_sequence_to_folder(subfolder_path)
+            
             save_dir = os.path.join(self.output_dir, subfolder_path)
             try:
                 # Ensure path uses OS-appropriate separators
@@ -140,6 +146,34 @@ class XImageSave:
                                 break
         
         return text
+    
+    def add_sequence_to_folder(self, folder_path):
+        """Add a sequence number to the folder name if it doesn't already have one"""
+        # Check if the folder already has a sequence number pattern (_00001)
+        import re
+        sequence_pattern = r'_\d{5}(?=\/|$)'
+        if re.search(sequence_pattern, folder_path):
+            # Folder already has a sequence, return as is
+            return folder_path
+        
+        # Split the path to get the last folder name and parent path
+        parts = folder_path.strip('/\\').split('/')
+        if len(parts) == 0:
+            return folder_path
+        
+        last_part = parts[-1]
+        parent_path = '/'.join(parts[:-1])
+        
+        # Find the next available sequence number
+        sequence_num = 1
+        base_folder_path = os.path.join(self.output_dir, parent_path, last_part) if parent_path else os.path.join(self.output_dir, last_part)
+        
+        while os.path.exists(base_folder_path + f'_{sequence_num:05d}'):
+            sequence_num += 1
+        
+        # Return the folder path with the sequence number
+        new_folder_path = f'{parent_path}/{last_part}_{sequence_num:05d}' if parent_path else f'{last_part}_{sequence_num:05d}'
+        return new_folder_path
 
 
 # Node class mappings

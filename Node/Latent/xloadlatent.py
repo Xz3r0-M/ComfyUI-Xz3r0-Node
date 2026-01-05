@@ -16,6 +16,8 @@ class XLoadLatent:
                 _, ext = os.path.splitext(file)
                 if ext.lower() in latent_extensions:
                     rel_path = os.path.relpath(os.path.join(root, file), output_dir)
+                    # Ensure path uses forward slashes
+                    rel_path = rel_path.replace('\\', '/').replace('/', '/')
                     latent_files.append(rel_path)
         
         if not latent_files:
@@ -31,8 +33,7 @@ class XLoadLatent:
         }
 
 
-
-    CATEGORY = "Xz3r0/Latent"
+    CATEGORY = "♾️Xz3r0/Latent"
 
     RETURN_TYPES = ("LATENT", )
     FUNCTION = "load"
@@ -48,8 +49,13 @@ class XLoadLatent:
         
         # 确保路径安全（防止路径遍历攻击）
         output_dir = folder_paths.get_output_directory()
+        # Ensure output_dir uses forward slashes for comparison
+        output_dir = output_dir.replace('\\', '/').replace('/', '/')
         full_path = os.path.join(output_dir, selected_path)
         full_path = os.path.normpath(full_path)
+        
+        # Ensure path uses forward slashes
+        full_path = full_path.replace('\\', '/').replace('/', '/')
         
         if not full_path.startswith(output_dir):
             raise ValueError("Invalid latent file path")
@@ -74,10 +80,14 @@ class XLoadLatent:
             selected_path = filepath
         
         output_dir = folder_paths.get_output_directory()
+        # Ensure output_dir uses forward slashes for comparison
+        output_dir = output_dir.replace('\\', '/').replace('/', '/')
         full_path = os.path.join(output_dir, selected_path)
         
         # 确保路径安全
         full_path = os.path.normpath(full_path)
+        # Ensure path uses forward slashes
+        full_path = full_path.replace('\\', '/').replace('/', '/')
         if not full_path.startswith(output_dir):
             raise ValueError("Invalid latent file path")
         
@@ -94,10 +104,14 @@ class XLoadLatent:
             selected_path = filepath
         
         output_dir = folder_paths.get_output_directory()
+        # Ensure output_dir uses forward slashes for comparison
+        output_dir = output_dir.replace('\\', '/').replace('/', '/')
         full_path = os.path.join(output_dir, selected_path)
         
         # 确保路径安全
         full_path = os.path.normpath(full_path)
+        # Ensure path uses forward slashes
+        full_path = full_path.replace('\\', '/').replace('/', '/')
         if not full_path.startswith(output_dir):
             return "Invalid latent file path"
         

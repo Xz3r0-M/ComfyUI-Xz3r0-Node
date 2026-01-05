@@ -51,6 +51,12 @@
         "name": "Add Folder Sequence Number",
         "tooltip": "Automatically add sequence number to custom folder name if it doesn't already have one (e.g., Image_00001)"
       }
+    },
+    "outputs": {
+      "0": {
+        "name": "Path",
+        "tooltip": "Path where images were saved"
+      }
     }
   },
   "XLoadLatent": {
@@ -97,8 +103,8 @@
         "tooltip": "Saved latent tensor"
       },
       "1": {
-        "name": "Saved File Name",
-        "tooltip": "Name of the saved latent file"
+        "name": "Path and Filename",
+        "tooltip": "Path and filename of the saved latent"
       }
     }
   },

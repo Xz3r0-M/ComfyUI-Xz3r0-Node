@@ -24,7 +24,7 @@ class XSize:
     RETURN_TYPES = ("INT", "INT")
     RETURN_NAMES = ("Width", "Height")
     FUNCTION = "execute"
-    CATEGORY = "Xz3r0/Resolution"
+    CATEGORY = "♾️Xz3r0/Resolution"
 
     def execute(self, width, height, swap_dimensions):
         result_width = width

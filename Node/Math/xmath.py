@@ -18,7 +18,7 @@ class XMath:
     RETURN_TYPES = ("FLOAT", "INT")
     RETURN_NAMES = ("FLOAT", "INT")
     FUNCTION = "execute"
-    CATEGORY = "Xz3r0/Math"
+    CATEGORY = "♾️Xz3r0/Math"
 
     def execute(self, operation, a, b):
         # Validate inputs are numeric before conversion

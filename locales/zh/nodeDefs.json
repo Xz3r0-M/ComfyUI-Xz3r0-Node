@@ -51,6 +51,12 @@
         "name": "添加文件夹序列号",
         "tooltip": "如果自定义文件夹名没有序列号，则自动添加序列号（例如，Image_00001）"
       }
+    },
+    "outputs": {
+      "0": {
+        "name": "路径",
+        "tooltip": "图像保存的路径"
+      }
     }
   },
   "XLoadLatent": {
@@ -97,8 +103,8 @@
         "tooltip": "已保存的Latent"
       },
       "1": {
-        "name": "已保存文件名",
-        "tooltip": "已保存的Latent文件名"
+        "name": "路径和文件名",
+        "tooltip": "Latent保存的路径和文件名"
       }
     }
   },

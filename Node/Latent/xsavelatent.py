@@ -22,11 +22,14 @@ class XSaveLatent:
     RETURN_NAMES = ("Latent", "full_path")
     FUNCTION = "save"
     OUTPUT_NODE = True
-    CATEGORY = "Xz3r0/Latent"
+    CATEGORY = "♾️Xz3r0/Latent"
 
     def save(self, samples, save_path="ComfyUI", number_padding=True):
         # 获取保存路径信息
         full_output_folder, filename, counter, subfolder, save_path = folder_paths.get_save_image_path(save_path, self.output_dir)
+        
+        # Ensure path uses forward slashes
+        full_output_folder = full_output_folder.replace('\\', '/').replace('/', '/')
         
         # 准备元数据（保持空值）
         metadata = None
@@ -40,9 +43,13 @@ class XSaveLatent:
             file = f"{filename}.latent"
 
         file_path = os.path.join(full_output_folder, file)
+        # Ensure path uses forward slashes
+        file_path = file_path.replace('\\', '/').replace('/', '/')
 
         # 计算相对于输出目录的完整路径
         rel_path = os.path.relpath(file_path, self.output_dir)
+        # Ensure path uses forward slashes
+        rel_path = rel_path.replace('\\', '/').replace('/', '/')
 
         output = {}
         output["latent_tensor"] = samples["samples"].contiguous()
@@ -60,7 +67,9 @@ class XSaveLatent:
         n = 0
         while True:
             file = f"{filename}_{n:05}.latent"
-            if not os.path.exists(os.path.join(full_output_folder, file)):
+            # Ensure path uses forward slashes
+            check_path = os.path.join(full_output_folder, file).replace('\\', '/').replace('/', '/')
+            if not os.path.exists(check_path):
                 return file
             n += 1
 

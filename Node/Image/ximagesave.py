@@ -34,10 +34,11 @@ class XImageSave:
             },
         }
 
-    RETURN_TYPES = ()
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("Saved Path",)
     FUNCTION = "save_images"
     OUTPUT_NODE = True
-    CATEGORY = "Xz3r0/Image"
+    CATEGORY = "♾️Xz3r0/Image"
 
     def save_images(self, images, filename_prefix="ComfyUI", use_custom_path=False, folder="", add_folder_sequence=False, prompt=None, extra_pnginfo=None):
         # Process filename prefix with tokens
@@ -47,7 +48,7 @@ class XImageSave:
         if use_custom_path and folder and folder.strip():
             # Use folder as subfolder within output directory for security
             # ComfyUI restricts saving to subdirectories of the output folder
-            subfolder_path = folder.strip().replace('\\', '/').rstrip('/')
+            subfolder_path = folder.strip().replace('\\', '/').replace('/', '/').rstrip('/')
             
             # Add sequence number to folder if enabled
             if add_folder_sequence:
@@ -65,6 +66,8 @@ class XImageSave:
                     filename_prefix, save_dir, images[0].shape[1], images[0].shape[0]
                 )
             except Exception as e:
+                # Ensure path uses forward slashes
+                subfolder_path = subfolder_path.replace('\\', '/').replace('/', '/')
                 print(f"Warning: Could not create or access subdirectory {subfolder_path}, using default: {e}")
                 full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
                     filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0]
@@ -74,7 +77,9 @@ class XImageSave:
             full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
                 filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0]
             )
-        
+            # Ensure path uses forward slashes
+            full_output_folder = full_output_folder.replace('\\', '/').replace('/', '/')
+
         results = list()
         for (batch_number, image) in enumerate(images):
             i = 255. * image.cpu().numpy()
@@ -91,14 +96,18 @@ class XImageSave:
             # Generate filename with timestamp and counter
             file = f"{filename}_{counter:05}_.png"
             file_path = os.path.join(full_output_folder, file)
+            # Ensure path uses forward slashes
+            file_path = file_path.replace('\\', '/').replace('/', '/')
 
             # Save directly to target location
             try:
                 img.save(file_path, compress_level=self.compress_level, pnginfo=metadata)
                 print(f"Saved image to: {file_path}")
+                # Ensure subfolder path uses forward slashes
+                clean_subfolder = subfolder_path.replace('\\', '/').replace('/', '/') if use_custom_path and folder and folder.strip() else subfolder.replace('\\', '/').replace('/', '/') if subfolder else subfolder
                 results.append({
                     "filename": file,
-                    "subfolder": subfolder_path if use_custom_path and folder and folder.strip() else subfolder,
+                    "subfolder": clean_subfolder,
                     "type": self.type
                 })
             except Exception as e:
@@ -106,7 +115,12 @@ class XImageSave:
             
             counter += 1
 
-        return {"ui": {"images": results}}
+        # Extract the path without the final folder name
+        output_path = os.path.dirname(full_output_folder)
+        # Ensure path uses forward slashes
+        output_path = output_path.replace('\\', '/').replace('/', '/')
+        
+        return (output_path,), {"ui": {"images": results}}
     
     def replace_tokens(self, text, prompt=None):
         """Replace tokens in the text with actual values"""
@@ -154,26 +168,30 @@ class XImageSave:
         sequence_pattern = r'_\d{5}(?=\/|$)'
         if re.search(sequence_pattern, folder_path):
             # Folder already has a sequence, return as is
-            return folder_path
+            # Ensure path uses forward slashes
+            return folder_path.replace('\\', '/').replace('/', '/')
         
         # Split the path to get the last folder name and parent path
         parts = folder_path.strip('/\\').split('/')
         if len(parts) == 0:
-            return folder_path
+            # Ensure path uses forward slashes
+            return folder_path.replace('\\', '/').replace('/', '/')
         
         last_part = parts[-1]
         parent_path = '/'.join(parts[:-1])
         
         # Find the next available sequence number
         sequence_num = 1
-        base_folder_path = os.path.join(self.output_dir, parent_path, last_part) if parent_path else os.path.join(self.output_dir, last_part)
+        # Ensure path uses forward slashes
+        base_folder_path = os.path.join(self.output_dir, parent_path, last_part).replace('\\', '/').replace('/', '/') if parent_path else os.path.join(self.output_dir, last_part).replace('\\', '/').replace('/', '/')
         
         while os.path.exists(base_folder_path + f'_{sequence_num:05d}'):
             sequence_num += 1
         
         # Return the folder path with the sequence number
         new_folder_path = f'{parent_path}/{last_part}_{sequence_num:05d}' if parent_path else f'{last_part}_{sequence_num:05d}'
-        return new_folder_path
+        # Ensure path uses forward slashes
+        return new_folder_path.replace('\\', '/').replace('/', '/')
 
 
 # Node class mappings

@@ -86,14 +86,7 @@
         "tooltip": "Whether to add numbering to the filename to prevent overwriting (e.g., abc_00001.latent vs abc.latent)"
       }
     },
-    "button": {
-      "enabled": {
-        "name": "With Numbering"
-      },
-      "disabled": {
-        "name": "Without Numbering"
-      }
-    },
+
     "outputs": {
       "0": {
         "name": "Latent",
@@ -102,6 +95,34 @@
       "1": {
         "name": "Saved File Name",
         "tooltip": "Name of the saved latent file"
+      }
+    }
+  },
+  "XMath": {
+    "display_name": "XMath",
+    "description": "A node for mathematical calculations supporting both integers and floats",
+    "inputs": {
+      "operation": {
+        "name": "Operation",
+        "tooltip": "Mathematical operation to perform"
+      },
+      "a": {
+        "name": "Input A",
+        "tooltip": "First input value (integer or float)"
+      },
+      "b": {
+        "name": "Input B",
+        "tooltip": "Second input value (integer or float)"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "Float Result",
+        "tooltip": "Calculated result (float)"
+      },
+      "1": {
+        "name": "Integer Result",
+        "tooltip": "Calculated result (integer)"
       }
     }
   }

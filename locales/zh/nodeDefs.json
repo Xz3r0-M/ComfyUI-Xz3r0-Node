@@ -86,14 +86,7 @@
         "tooltip": "是否在文件名中添加序号以防止覆盖（例如 abc_00001.latent 与 abc.latent）"
       }
     },
-    "button": {
-      "enabled": {
-        "name": "带序号"
-      },
-      "disabled": {
-        "name": "不带序号"
-      }
-    },
+
     "outputs": {
       "0": {
         "name": "Latent",
@@ -102,6 +95,34 @@
       "1": {
         "name": "已保存文件名",
         "tooltip": "已保存的Latent文件名"
+      }
+    }
+  },
+  "XMath": {
+    "display_name": "XMath",
+    "description": "支持整数和浮点数的数学计算节点",
+    "inputs": {
+      "operation": {
+        "name": "运算",
+        "tooltip": "要执行的数学运算"
+      },
+      "a": {
+        "name": "输入A",
+        "tooltip": "第一个输入值（整数或浮点数）"
+      },
+      "b": {
+        "name": "输入B",
+        "tooltip": "第二个输入值（整数或浮点数）"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "浮点数结果",
+        "tooltip": "计算结果（浮点数）"
+      },
+      "1": {
+        "name": "整数结果",
+        "tooltip": "计算结果（整数）"
       }
     }
   }

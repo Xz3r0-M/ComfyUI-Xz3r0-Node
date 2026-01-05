@@ -28,6 +28,7 @@ from .Node.Resolution.xsize import XSize
 from .Node.Image.ximagesave import XImageSave
 from .Node.Latent.xloadlatent import XLoadLatent
 from .Node.Latent.xsavelatent import XSaveLatent
+from .Node.Math.xmath import XMath
 
 # A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
@@ -35,6 +36,7 @@ NODE_CLASS_MAPPINGS = {
     "XImageSave": XImageSave,
     "XLoadLatent": XLoadLatent,
     "XSaveLatent": XSaveLatent,
+    "XMath": XMath,
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
@@ -43,6 +45,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "XImageSave": "XImageSave",
     "XLoadLatent": "XLoadLatent",
     "XSaveLatent": "XSaveLatent",
+    "XMath": "XMath",
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]

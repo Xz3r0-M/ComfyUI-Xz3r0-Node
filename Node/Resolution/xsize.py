@@ -17,7 +17,7 @@ class XSize:
                     "step": 8,
                     "display": "number"
                 }),
-                "swap_dimensions": ("BOOLEAN", {"default": False})
+                "swap_dimensions": ("BOOLEAN", {"default": False, "label_on": "YES", "label_off": "NO"})
             }
         }
 

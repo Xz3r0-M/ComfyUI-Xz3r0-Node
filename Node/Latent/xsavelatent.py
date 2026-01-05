@@ -13,7 +13,7 @@ class XSaveLatent:
             "required": {
                 "samples": ("LATENT", ),
                 "save_path": ("STRING", {"default": "Latents/ComfyUI"}),
-                "number_padding": ("BOOLEAN", {"default": True, "label_on": "enabled", "label_off": "disabled"})
+                "number_padding": ("BOOLEAN", {"default": True, "label_on": "YES", "label_off": "NO"})
             },
 
         }

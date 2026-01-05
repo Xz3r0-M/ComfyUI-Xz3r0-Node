@@ -20,7 +20,7 @@ class XImageSave:
             "required": {
                 "images": ("IMAGE",),
                 "filename_prefix": ("STRING", {"default": "ComfyUI"}),
-                "use_custom_path": ("BOOLEAN", {"default": False}),
+                "use_custom_path": ("BOOLEAN", {"default": False, "label_on": "YES", "label_off": "NO"}),
                 "folder": ("STRING", {
                     "default": "",
                     "multiline": False,

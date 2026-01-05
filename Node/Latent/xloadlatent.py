@@ -28,7 +28,7 @@ class XLoadLatent:
                 "filepath": (sorted(latent_files), ),
             },
             "optional": {
-                "filepath_input": ("STRING", {"default": "", "label": "手动输入路径(优先)"}),  # 用于接收来自XSaveLatent的路径
+                "filepath_input": ("STRING", {"default": "", "label": "自定义路径和文件名(优先)"}),  # 用于接收来自XSaveLatent的路径
             }
         }
 

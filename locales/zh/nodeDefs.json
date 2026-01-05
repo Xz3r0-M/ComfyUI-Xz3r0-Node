@@ -64,12 +64,12 @@
     "description": "从Output目录加载Latent文件的节点",
     "inputs": {
       "filepath": {
-        "name": "文件路径",
-        "tooltip": "Output目录中的Latent文件路径"
+        "name": "文件",
+        "tooltip": "Output目录中的Latent文件"
       },
       "filepath_input": {
-        "name": "手动输入路径(优先)",
-        "tooltip": "手动输入Latent文件路径，优先于下拉选择"
+        "name": "自定义路径和文件名(优先)",
+        "tooltip": "手动指定Output目录中的Latent文件(例如:Latents/ComfyUI/ComfyUI.latent)，优先于下拉列表选择的文件"
       }
     },
     "outputs": {
@@ -87,9 +87,13 @@
         "name": "Latent",
         "tooltip": "要保存的Latent"
       },
+      "filename_prefix": {
+        "name": "文件名",
+        "tooltip": "保存的Latent文件名前缀"
+      },
       "save_path": {
         "name": "保存路径",
-        "tooltip": "Latent文件的保存路径"
+        "tooltip": "手动指定在Output目录中Latent的自定义保存路径(例如:Latents/ComfyUI)"
       },
       "number_padding": {
         "name": "文件名带序号",

@@ -64,12 +64,12 @@
     "description": "A node for loading latent files from the output directory",
     "inputs": {
       "filepath": {
-        "name": "File Path",
-        "tooltip": "Path to the latent file in output directory"
+        "name": "File",
+        "tooltip": "Latent file in output directory"
       },
       "filepath_input": {
-        "name": "Manual Input Path (Priority)",
-        "tooltip": "Manually input path to latent file, takes priority over dropdown selection"
+        "name": "Custom Path and Filename (Priority)",
+        "tooltip": "Manually specify latent file in Output directory (e.g., Latents/ComfyUI/ComfyUI.latent), takes priority over dropdown list selection"
       }
     },
     "outputs": {
@@ -87,9 +87,13 @@
         "name": "Latent",
         "tooltip": "The latent tensor to save"
       },
+      "filename_prefix": {
+        "name": "Filename",
+        "tooltip": "Filename prefix for the saved latent file"
+      },
       "save_path": {
         "name": "Save Path",
-        "tooltip": "Path for saving the latent file"
+        "tooltip": "Manually specify custom save path for latent in Output directory (e.g., Latents/ComfyUI)"
       },
       "number_padding": {
         "name": "File Name With Numbering",

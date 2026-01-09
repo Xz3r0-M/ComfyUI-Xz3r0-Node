@@ -139,5 +139,37 @@
         "tooltip": "计算结果（整数）"
       }
     }
+  },
+  "XVideoSave": {
+    "display_name": "XVideoSave",
+    "description": "将图片序列保存为无损视频的节点",
+    "inputs": {
+      "images": {
+        "name": "图像",
+        "tooltip": "要保存为视频的图像序列"
+      },
+      "filename_prefix": {
+        "name": "文件名前缀",
+        "tooltip": "视频文件名前缀，支持标识符如 %date%, %time%, %seed% 等"
+      },
+      "fps": {
+        "name": "帧率(FPS)",
+        "tooltip": "视频每秒帧数"
+      },
+      "use_custom_folder": {
+        "name": "使用自定义文件夹",
+        "tooltip": "是否使用自定义文件夹"
+      },
+      "folder": {
+        "name": "自定义文件夹名称",
+        "tooltip": "自定义保存文件夹，支持同时创建子文件夹，如：视频/动画"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "保存的路径",
+        "tooltip": "视频保存的路径"
+      }
+    }
   }
 }

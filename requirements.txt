@@ -1,3 +1,5 @@
 # ComfyUI Xz3r0 Nodes - Dependencies
-numpy>=1.17.0 #依赖节点: X Image Save
-Pillow>=6.0.0 #依赖节点: X Image Save
+numpy>=1.17.0 #依赖节点: XImageSave
+Pillow>=6.0.0 #依赖节点: XImageSave
+imageio-ffmpeg>=0.4.0 #依赖节点: XVideoSave
+ffmpeg-python>=0.2.0 #依赖节点: XVideoSave

@@ -139,5 +139,37 @@
         "tooltip": "Calculated result (integer)"
       }
     }
+  },
+  "XVideoSave": {
+    "display_name": "XVideoSave",
+    "description": "A node for saving image sequences as lossless video",
+    "inputs": {
+      "images": {
+        "name": "Images",
+        "tooltip": "The image sequence to save as video"
+      },
+      "filename_prefix": {
+        "name": "Filename Prefix",
+        "tooltip": "Video filename prefix with support for tokens like %date%, %time%, %seed%, etc."
+      },
+      "fps": {
+        "name": "Frame Rate (FPS)",
+        "tooltip": "Frames per second for the video"
+      },
+      "use_custom_folder": {
+        "name": "Use Custom Folder",
+        "tooltip": "Whether to use a custom folder"
+      },
+      "folder": {
+        "name": "Custom Folder Name",
+        "tooltip": "Custom save folder, supports creating subfolders like: Videos/Animation"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "Saved Path",
+        "tooltip": "Path where the video was saved"
+      }
+    }
   }
 }

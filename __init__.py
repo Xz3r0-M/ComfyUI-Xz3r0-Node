@@ -10,8 +10,6 @@ def is_package_installed(package_name):
     return importlib.util.find_spec(package_name) is not None
 
 
-
-
 # Check for dependencies
 missing_deps = []
 if not is_package_installed("numpy"):
@@ -29,6 +27,7 @@ from .Node.Image.ximagesave import XImageSave
 from .Node.Latent.xloadlatent import XLoadLatent
 from .Node.Latent.xsavelatent import XSaveLatent
 from .Node.Math.xmath import XMath
+from .Node.Video.xvideosave import XVideoSave
 
 # A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
@@ -37,6 +36,7 @@ NODE_CLASS_MAPPINGS = {
     "XLoadLatent": XLoadLatent,
     "XSaveLatent": XSaveLatent,
     "XMath": XMath,
+    "XVideoSave": XVideoSave,
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
@@ -46,6 +46,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "XLoadLatent": "XLoadLatent",
     "XSaveLatent": "XSaveLatent",
     "XMath": "XMath",
+    "XVideoSave": "XVideoSave",
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]

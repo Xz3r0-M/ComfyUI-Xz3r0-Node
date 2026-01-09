@@ -34,13 +34,24 @@ class XImageSave:
             },
         }
 
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("Saved Path",)
+    RETURN_TYPES = ("STRING", "IMAGE")
+    RETURN_NAMES = ("Saved Path", "IMAGE")
     FUNCTION = "save_images"
     OUTPUT_NODE = True
     CATEGORY = "♾️Xz3r0/Image"
 
     def save_images(self, images, filename_prefix="ComfyUI", use_custom_path=False, folder="", add_folder_sequence=False, prompt=None, extra_pnginfo=None):
+        # Ensure images is a tensor and get its shape safely
+        if hasattr(images, '__len__') and len(images) > 0:
+            # Handle case where images is a batch
+            if isinstance(images, (list, tuple)):
+                first_image = images[0]
+            else:
+                # Assume it's a tensor/array-like object
+                first_image = images[0] if hasattr(images, '__getitem__') else images
+        else:
+            raise ValueError("Images input is empty or invalid")
+        
         # Process filename prefix with tokens
         filename_prefix = self.replace_tokens(filename_prefix, prompt)
         
@@ -63,19 +74,19 @@ class XImageSave:
                 # Process images with the custom folder path
                 # Get the basic save parameters without subfolder to ensure correct path handling
                 full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
-                    filename_prefix, save_dir, images[0].shape[1], images[0].shape[0]
+                    filename_prefix, save_dir, first_image.shape[1], first_image.shape[0]
                 )
             except Exception as e:
                 # Ensure path uses forward slashes
                 subfolder_path = subfolder_path.replace('\\', '/').replace('/', '/')
                 print(f"Warning: Could not create or access subdirectory {subfolder_path}, using default: {e}")
                 full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
-                    filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0]
+                    filename_prefix, self.output_dir, first_image.shape[1], first_image.shape[0]
                 )
         else:
             # Use default path
             full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
-                filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0]
+                filename_prefix, self.output_dir, first_image.shape[1], first_image.shape[0]
             )
             # Ensure path uses forward slashes
             full_output_folder = full_output_folder.replace('\\', '/').replace('/', '/')
@@ -115,12 +126,27 @@ class XImageSave:
             
             counter += 1
 
-        # Extract the path without the final folder name
-        output_path = os.path.dirname(full_output_folder)
+        # Get the base output directory and make the path relative to it
+        base_output_dir = folder_paths.get_output_directory()
+                        
+        # Use the full output folder path for relative calculation
+        output_path = full_output_folder
+                        
+        # Convert to relative path starting from output directory
+        output_path = os.path.relpath(output_path, base_output_dir)
+                        
+        # Add 'output/' prefix to the relative path
+        output_dir_name = os.path.basename(base_output_dir)
+        output_path = os.path.join(output_dir_name, output_path)
+                        
         # Ensure path uses forward slashes
         output_path = output_path.replace('\\', '/').replace('/', '/')
-        
-        return (output_path,), {"ui": {"images": results}}
+                        
+        # Return the saved path and the original images for further processing
+        return {
+            "ui": {"images": results},
+            "result": (output_path, images)
+        }
     
     def replace_tokens(self, text, prompt=None):
         """Replace tokens in the text with actual values"""

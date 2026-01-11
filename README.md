@@ -1,4 +1,8 @@
 # ComfyUI Xz3r0 Nodes
+
+# [注意]本库中的节点都处于早期测试阶段,节点会因为我的想法或需求进行(大量)更改.
+# [Warning]All nodes in this library are in the early testing stage, and the nodes will be (significantly) changed based on my ideas or needs.
+
 The node has [Chinese/English] localization
 
 节点拥有[中/英]本地化
